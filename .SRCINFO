@@ -1,64 +1,42 @@
 pkgbase = julia-git
 	pkgdesc = High-level, high-performance, dynamic programming language
-	pkgver = 0.7.0.DEV.r41074.g018fb61ff6
+	pkgver = 0.7.0.beta2.r42684.g6476f51886
 	pkgrel = 1
-	url = http://julialang.org
-	arch = i686
+	url = https://julialang.org/
 	arch = x86_64
 	license = MIT
+	makedepends = chrpath
+	makedepends = cmake
 	makedepends = gcc-fortran
-	makedepends = git
-	makedepends = arpack
-	makedepends = blas>=3.5.0
-	makedepends = gmp
-	makedepends = lapack>=3.5.0
-	makedepends = libgit2
-	makedepends = libunwind
-	makedepends = mbedtls
-	makedepends = mpfr
-	makedepends = openlibm
-	makedepends = pcre2
-	makedepends = suitesparse
-	makedepends = patchelf
-	makedepends = hicolor-icon-theme
-	makedepends = xdg-utils
-	makedepends = desktop-file-utils
+	makedepends = gmp>=5.0
 	makedepends = gtk-update-icon-cache
+	makedepends = python2
+	depends = fftw
+	depends = hicolor-icon-theme
+	depends = libgit2>=0.23
+	depends = libunwind
+	depends = libutf8proc>=2.1
+	depends = mpfr>=4.0
+	depends = pcre2>=10.00
+	depends = suitesparse>=4.1
 	options = !emptydirs
+	options = staticlibs
 	source = git://github.com/JuliaLang/julia.git#branch=master
-	source = Make.user
-	md5sums = SKIP
-	md5sums = 490d7e6f1a8829b5ad0232935f63ff2f
+	source = julia-libunwind-version.patch
+	source = julia-makefile.patch
+	sha256sums = SKIP
+	sha256sums = 967cac3f9c3d1f41a027dd2c914048c1077dec79cfdc4e9a69f356b7552e6709
+	sha256sums = 29b68ecdaf91770585609f54e5559e571d6b57a6312a3e8335caa7d647a2d2ca
 
 pkgname = julia-git
-	depends = arpack
-	depends = blas>=3.5.0
-	depends = gmp
-	depends = lapack>=3.5.0
-	depends = libgit2
-	depends = libunwind
-	depends = llvm39
-	depends = mbedtls
-	depends = mpfr
-	depends = openlibm
-	depends = pcre2
-	depends = suitesparse
-	depends = patchelf
-	depends = hicolor-icon-theme
-	depends = xdg-utils
-	depends = desktop-file-utils
-	depends = gtk-update-icon-cache
-	optdepends = openblas-lapack: multithreaded replacement for lapack
-	optdepends = fftw: If using the FFTW package from julia
 	optdepends = gnuplot: If using the Gaston Package from julia
 	provides = julia
 	conflicts = julia
 	backup = etc/julia/juliarc.jl
 
 pkgname = julia-git-docs
-	pkgdesc = High-level, high-performance, dynamic programming language (Documentation and examples)
-	arch = any
+	pkgdesc = Documentation for Julia
+	depends = julia
 	provides = julia-docs
 	conflicts = julia-docs
-	conflicts = julia-git-doc
 
